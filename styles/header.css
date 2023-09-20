@@ -1,0 +1,171 @@
+.cabecalho__menu-hamburguer {
+    width: 36px;
+    height: 36px;
+    background-image: url("../assets/Menu.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+}
+
+.cabecalho {
+    background-color: var(--branco);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+}
+
+.container__botao:checked ~ .container__rotulo > .cabecalho__menu-hamburguer {
+    background-image: url("../assets/Menu\ Aberto.svg");
+}
+
+.container__botao:checked ~ .container__rotulo {
+    background: var(--cor-azul);
+}
+
+.container__texto {
+    display: none;
+}
+
+.container__imagem {
+    padding: 0.5em;
+}
+
+.lista-menu {
+    display: none; /*elemento não aparece*/
+    position: absolute;
+    top: 100%;
+    width: 35vh;
+}
+
+.container__botao:checked ~ .lista-menu {
+    display: block;
+}
+
+.container__botao {
+    display: none;
+}
+
+.lista-menu__titulo, .lista-menu__item {
+    padding: 1em;
+    background-color: var(--branco);
+}
+
+.lista-menu__titulo {
+    font-weight: 700;
+    color: var(--cor-laranja);
+}
+
+.lista-menu__link {
+    font-weight: 500;
+    background: var(--cor-azul);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /*text-transform: uppercase; deixa tudo maiusculo*/
+}
+
+.lista-menu__item a {
+    text-decoration: none;
+}
+
+.container__titulo, .opcoes {
+    display: none;
+}
+
+ /*pro nome AluraBooks sumir no mobile*/
+
+ /* TABLET */
+
+/*media query usamos pra aplicar estilos em determinado tamanho de tela*/
+@media screen and (min-width :1024px) {
+
+    .container__titulo, .container__titulo--negrito {
+        font-family: var(--fonte-secundaria);
+        font-size: 30px; 
+    }
+    
+    .container__titulo {
+        font-weight: 400;
+        display: block;
+    }
+
+    .container__titulo--negrito {      
+        font-weight: 700;
+    }
+
+    .opcoes {
+        display: flex;
+    }
+
+    .opcoes__item {
+        text-transform: uppercase;
+        padding: 0 1.5em;
+    }
+
+    .opcoes__item a {
+        text-decoration: none;
+        color: var(--preto);
+    }
+
+    .container__imagem-transparente {
+        display: none;
+    }
+
+    .cabecalho__menu-hamburguer {
+        display: none;
+    }
+
+    .opcoes__botao:checked ~ .lista-menu {
+        display: block;
+        width: auto;
+    }
+
+    .opcoes__botao {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 1728px) {
+    
+    .container__texto {
+        display: block;
+    }
+    .container__link {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: var(--preto);
+    }
+
+    .cabecalho {
+        padding: 0 2em;
+    }
+
+    .opcoes {
+        margin-right: auto;
+    }
+
+    .opcoes__botao:checked ~ .opcoes__rotulo > .opcoes__item {
+        background: var(--cor-azul);
+        color: var(--branco);
+    }
+
+    .opcoes__item {
+        padding: 2em 1em;
+    }
+
+    .lista-menu__link:hover {
+        background: var(--cor-azul);
+        
+    }
+
+    .lista-menu__item:hover > .lista-menu__link {
+        -webkit-text-fill-color: var(--branco);
+    }
+}
